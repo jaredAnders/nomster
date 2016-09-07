@@ -1,25 +1,63 @@
 @import "bootstrap-sprockets","bootstrap";
 
+$raleway: 'Raleway', sans-serif;
+$pacifico: 'Pacifico', cursive;
+$lora: 'Lora', serif;
+$orange: #FF6D00;
+
 body {
   background: url('/assets/concrete_seamless.png');
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin:0;
-  padding:0;
+  font-family: $lora;
+  margin: 0;
+  padding: 0;
+}
+
+p, li, i {
+  font-family: $raleway;
 }
 
 .navbar.navbar-inverse {
-  background: url('/assets/classy_fabric.png');
+  background: lighten(black,15%);
   border: none;
   border-radius: 0;
   box-shadow: 0 0 .5em rgba(0, 0, 0, .14), 0 .5em 1em rgba(0, 0, 0, .28);
   //box-shadow: 0 .2em 1em .5em rgba(0,0,0,.5),0 .1em .5em .25em rgba(0,0,0,.4);
 }
 
-// .navbar-brand {
-//   font-family: 'Pacifico';
-// }
+.navbar-inverse {
+  .navbar-brand {
+    font-family: $pacifico;
+    color: $orange;
+    &:hover {
+      color: lighten($orange, 15%);
+    }
+  }
+  .navbar-toggle {
+    border-color: rgba(black,0);
+    .icon-bar {
+      background-color: rgba(white, .85);
+      transition: .3s ease-out;
+    }
+    &:hover {
+      background: none;
+      .icon-bar {
+        background-color: rgba(white, 1);
+      }
+    }
+  }
+  a {
+    color: rgba(white, .85);
+    transition: .3s ease-out;
+    &:hover {
+      color: rgba(white, 1);
+    }
+  }
+}
+
+
 
 .material-card {
   background: white;
