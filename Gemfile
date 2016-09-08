@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 gem 'autoprefixer-rails'
 gem 'kaminari'
+gem 'bootswatch-rails'
+gem 'simple_form'

@@ -1,9 +1,12 @@
-@import "bootstrap-sprockets","bootstrap";
+@import "bootstrap-sprockets";
 
-$raleway: 'Raleway', sans-serif;
-$pacifico: 'Pacifico', cursive;
-$lora: 'Lora', serif;
-$orange: #FF6D00;
+@import "custom_variables";
+
+@import "bootswatch/paper/variables";
+
+@import "bootstrap";
+
+@import "bootswatch/paper/bootswatch";
 
 body {
   background: url('/assets/concrete_seamless.png');
@@ -15,19 +18,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-p, li, i {
-  font-family: $raleway;
-}
+// p, li, i {
+//   font-family: $raleway;
+// }
+//
+// .navbar.navbar-inverse {
+//   background: lighten(black,15%);
+//   border: none;
+//   border-radius: 0;
+//   box-shadow: 0 0 .5em rgba(0, 0, 0, .14), 0 .5em 1em rgba(0, 0, 0, .28);
+//   //box-shadow: 0 .2em 1em .5em rgba(0,0,0,.5),0 .1em .5em .25em rgba(0,0,0,.4);
+// }
 
-.navbar.navbar-inverse {
-  background: lighten(black,15%);
-  border: none;
-  border-radius: 0;
-  box-shadow: 0 0 .5em rgba(0, 0, 0, .14), 0 .5em 1em rgba(0, 0, 0, .28);
-  //box-shadow: 0 .2em 1em .5em rgba(0,0,0,.5),0 .1em .5em .25em rgba(0,0,0,.4);
-}
-
-.navbar-inverse {
+.navbar-default {
   .navbar-brand {
     font-family: $pacifico;
     color: $orange;
@@ -38,36 +41,46 @@ p, li, i {
   .navbar-toggle {
     border-color: rgba(black,0);
     .icon-bar {
-      background-color: rgba(white, .85);
+      background-color: rgba(black, .6);
       transition: .3s ease-out;
     }
     &:hover {
       background: none;
       .icon-bar {
-        background-color: rgba(white, 1);
+        background-color: rgba(black, .9);
       }
     }
   }
   a {
-    color: rgba(white, .85);
+    color: rgba(black, .6);
     transition: .3s ease-out;
     &:hover {
-      color: rgba(white, 1);
+      color: rgba(black, .9);
     }
   }
 }
 
-.material-card {
-  background: white;
-  border-radius: .2em;
-  box-shadow: 0 .2em .2em 0 rgba(0,0,0,.12),0 .3em .1em -.2em rgba(0,0,0,.18),0 .1em .5em 0 rgba(0,0,0,.1);
-  padding: 1em 1em .5em;
-  margin-top: .5em;
-  margin-bottom: .5em;
-  transition: .3s ease-out;
+.panel {
+  padding: 1em 1.25em;
 }
 
 .pagination {
   display: flex;
   justify-content: center;
+}
+
+form {
+  * {
+    padding: .5em 0;
+  }
+  *:focus {
+    outline:none;
+  }
+  label {
+    display: none;
+  }
+  textarea {
+    resize: none;
+    width: 50%;
+  }
 }

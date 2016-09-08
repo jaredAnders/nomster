@@ -1,0 +1,30 @@
+//custom variables
+$orange: #FF6D00;
+$pacifico: 'Pacifico', cursive;
+$lora: 'Lora', "Times New Roman", Times, serif;
+
+//colors
+$brand-primary: $orange;
+
+//fonts
+$font-family-serif: 'Lora', "Times New Roman", Times, serif !default;
+
+$font-size-base: 13px !default;
+$font-size-h1: 2.5em !default;
+$font-size-h2: 2em !default;
+$font-size-h3: 1.5em !default;
+$font-size-h4: 1.25em !default;
+$font-size-h5: 1.1em !default;
+$font-size-h6: 1em !default;
+
+//links
+$link-color: $brand-primary !default;
+$link-hover-color: lighten($link-color, 15%) !default;
+$link-hover-decoration: none !default;
+
+//navbar
+//$navbar-default-color: $gray-light !default;
+$navbar-default-bg: #fff !default;
+$navbar-default-brand-color: $brand-primary !default;
+$navbar-default-brand-hover-color: lighten($brand-primary, 15%) !default;
+$navbar-default-toggle-icon-bar-bg: rgba(0,0,0,0.5) !default;
