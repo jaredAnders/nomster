@@ -72,15 +72,20 @@ h1, h2, h3, h4, h5, h6 {
 form {
   * {
     padding: .5em 0;
-  }
-  *:focus {
-    outline:none;
-  }
-  label {
-    display: none;
+    label {
+      display: block;
+    }
+    &:focus {
+      outline:none;
+    }
   }
   textarea {
     resize: none;
+  }
+  #place_name, #place_address {
     width: 50%;
+  }
+  #place_description {
+    width: 75%;
   }
 }
