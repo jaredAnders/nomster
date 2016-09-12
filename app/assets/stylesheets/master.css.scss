@@ -41,21 +41,21 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-toggle {
     border-color: rgba(black,0);
     .icon-bar {
-      background-color: rgba(black, .6);
+      background-color: rgba(black, .85);
       transition: .3s ease-out;
     }
     &:hover {
       background: none;
       .icon-bar {
-        background-color: rgba(black, .9);
+        background-color: rgba(black, .5);
       }
     }
   }
-  a {
-    color: rgba(black, .6);
+  .navbar-nav > li > a {
+    color: rgba(black, .85);
     transition: .3s ease-out;
     &:hover {
-      color: rgba(black, .9);
+      color: rgba(black, .5);
     }
   }
 }

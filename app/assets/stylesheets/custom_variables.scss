@@ -1,12 +1,18 @@
-//custom variables
-$orange: #FF6D00;
-$pacifico: 'Pacifico', cursive;
-$lora: 'Lora', "Times New Roman", Times, serif;
-
 //colors
+$orange: #FF6D00;
 $brand-primary: $orange;
 
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 15%) !default; // #222
+$gray-dark:              #212121 !default;
+$gray:                   #666 !default;
+$gray-light:             #bbb !default;
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+
 //fonts
+$pacifico: 'Pacifico', cursive;
+$lora: 'Lora', "Times New Roman", Times, serif;
 $font-family-serif: 'Lora', "Times New Roman", Times, serif !default;
 
 $font-size-base: 13px !default;
