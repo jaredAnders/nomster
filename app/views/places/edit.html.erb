@@ -1,0 +1,10 @@
+<div class="panel panel-default col-xs-10 col-xs-offset-1">
+    <h1>Edit place details</h1>
+    <%= simple_form_for @place do |f| %>
+      <%= f.input :name, class: 'col-form-6' %>
+      <%= f.input :address, class: 'col-form-6' %>
+      <%= f.input :description, class: 'col-form-9' %>
+      <br>
+      <%= f.submit 'update', class: 'btn btn-primary pull-right' %>
+    <% end %>
+</div>
