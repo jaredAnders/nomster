@@ -4,6 +4,8 @@
   <br>
   <p><%= @place.description %></p>
   <div class="pull-right">
-    <%= link_to 'Edit', edit_place_path(@place) %>
+    <% if current_user && current_user == @place.user %>
+      <%= link_to 'Edit', edit_place_path(@place) %>
+    <% end %>
   </div>
 </div>
