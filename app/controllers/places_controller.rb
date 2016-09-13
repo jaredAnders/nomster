@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @places = Place.order(:created_at).reverse_order.page(params[:page]).per(3)
@@ -39,6 +39,11 @@ class PlacesController < ApplicationController
 
   def destroy
     @place = Place.find(params[:id])
+
+    if @place.user != current_user
+      return render :file => "#{Rails.root}/public/404.html",  :status => 404
+    end
+
     @place.destroy
     redirect_to root_path
   end
