@@ -3,9 +3,10 @@
   <i><%= @place.address %></i>
   <br>
   <p><%= @place.description %></p>
-  <div class="pull-right">
+  <div>
+    <%= link_to '< back', root_path %>
     <% if current_user && current_user == @place.user %>
-      <%= link_to 'Edit', edit_place_path(@place) %>
+      <%= link_to 'edit', edit_place_path(@place), class: 'pull-right' %>
     <% end %>
   </div>
 </div>
