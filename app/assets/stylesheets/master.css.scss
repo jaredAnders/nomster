@@ -88,6 +88,13 @@ form {
   #place_description {
     width: 75%;
   }
+  #comment_rating {
+    width: 25%;
+    background-color: rgba(black,0);
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
 
 .alert {
