@@ -108,3 +108,8 @@ form {
 #map {
   height: 300px;
 }
+
+::selection {
+  background: $orange;
+  color: white;
+}
