@@ -39,20 +39,64 @@
 </div>
 
 <div class="col-xs-10 col-xs-offset-1 panel">
-  <h3 class="pull-left">Comments</h3>
+  <h3 class="pull-left">Photos</h3>
 
-  <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">
+  <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#imageModal">
   + add
   </button>
   <br>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- image modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+          <h4 class="modal-title" id="imageModalLabel">Add a comment</h4>
+        </div>
+        <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+          <div class="modal-body">
+          <%= f.input :picture %>
+          <%= f.input :caption %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <%= f.submit "+ Add Photo", class: 'btn btn-primary pull-right' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <% @place.photos.each do |photo| %>
+
+      <% if photo.picture.present? %>
+        <div class="col-xs-10 col-xs-offset-1">
+        <%= image_tag photo.picture, class: 'place-image' %>
+        <% if photo.caption.present? %>
+          <%= photo.caption %>
+        <% end %>
+        </div>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="col-xs-10 col-xs-offset-1 panel">
+  <h3 class="pull-left">Comments</h3>
+
+  <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#commentModal">
+  + add
+  </button>
+  <br>
+
+  <!-- comment modal -->
+  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="commentModalLabel">Add a comment</h4>
         </div>
         <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
           <div class="modal-body">
