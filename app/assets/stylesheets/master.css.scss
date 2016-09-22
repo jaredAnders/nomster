@@ -121,6 +121,6 @@ form {
 }
 
 ::selection {
-  background: $orange;
+  background: rgba($orange,.75);
   color: white;
 }
