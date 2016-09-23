@@ -51,7 +51,7 @@
   <div id="carousel-places" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <% @place.photos.each_index do |i| %>
+      <% @place.photos.take(10).each_index do |i| %>
         <% if i == 0 %>
           <li data-target="#carousel-places" data-slide-to="<%= i %>" class="active"></li>
         <% else %>
@@ -68,7 +68,7 @@
         <% else %>
           <div class="item">
         <% end %>
-        <%= image_tag photo.picture %>
+        <%= image_tag photo.picture, class: 'img-responsive' %>
         <% if photo.caption.present? %>
           <div class="carousel-caption">
             <%= photo.caption %>
@@ -79,12 +79,12 @@
     </div>
 
     <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-places" data-slide="prev">
+    <!-- <a class="left carousel-control" href="#carousel-places" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
     <a class="right carousel-control" href="#carousel-places" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
+    </a> -->
   </div>
 
   <!-- image modal -->
@@ -93,7 +93,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="imageModalLabel">Add a comment</h4>
+          <h4 class="modal-title" id="imageModalLabel">Add a photo</h4>
         </div>
         <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
           <div class="modal-body">

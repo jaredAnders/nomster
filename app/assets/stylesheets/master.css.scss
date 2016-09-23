@@ -116,12 +116,31 @@ form {
   height: 300px;
 }
 
-#carousel-places {
-  height: 200px;
+.carousel-inner > .item > img {
+  margin: 0 auto;
 }
 
-.carousel-inner .item img {
-  height: 200px;
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  max-height: 300px;
+}
+
+.carousel-indicators {
+  bottom: -40px;
+  li, .active {
+    width: 12px;
+    height: 12px;
+    margin: 0 15px;
+  }
+  li {
+    background-color: rgba(black,.25);
+  }
+  .active {
+    background-color: $orange;
+  }
+}
+
+.carousel-caption  {
+  padding-bottom: 0;
 }
 
 ::selection {
