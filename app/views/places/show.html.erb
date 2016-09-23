@@ -12,13 +12,18 @@
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
-          center: myLatLng
+          center: myLatLng,
+          draggable: false,
+          zoomControl: false,
+          scrollwheel: false
         });
+
+        var orangeMarker = 'http://www.googlemapsmarkers.com/v1/-/FF6D00/FF6D00/FF6D00/'
 
         var marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
-          title: 'Hello World!'
+          icon: orangeMarker
         });
       }
     </script>
