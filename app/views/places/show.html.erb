@@ -45,6 +45,47 @@
   + add
   </button>
   <br>
+  <br>
+
+
+  <div id="carousel-places" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <% @place.photos.each_index do |i| %>
+        <% if i == 0 %>
+          <li data-target="#carousel-places" data-slide-to="<%= i %>" class="active"></li>
+        <% else %>
+          <li data-target="#carousel-places" data-slide-to="<%= i %>"></li>
+        <% end %>
+      <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <% @place.photos.each do |photo| %>
+        <% if photo == @place.photos.first %>
+          <div class="item active">
+        <% else %>
+          <div class="item">
+        <% end %>
+        <%= image_tag photo.picture %>
+        <% if photo.caption.present? %>
+          <div class="carousel-caption">
+            <%= photo.caption %>
+          </div>
+        <% end %>
+          </div>
+      <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-places" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-places" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
 
   <!-- image modal -->
   <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
@@ -69,17 +110,7 @@
   </div>
 
   <br>
-  <% @place.photos.each do |photo| %>
 
-      <% if photo.picture.present? %>
-        <div class="col-xs-10 col-xs-offset-1">
-        <%= image_tag photo.picture, class: 'place-image' %>
-        <% if photo.caption.present? %>
-          <%= photo.caption %>
-        <% end %>
-        </div>
-      <% end %>
-  <% end %>
 </div>
 
 <div class="col-xs-10 col-xs-offset-1 panel">

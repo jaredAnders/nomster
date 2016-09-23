@@ -116,8 +116,12 @@ form {
   height: 300px;
 }
 
-.place-image {
-  height: 150px;
+#carousel-places {
+  height: 200px;
+}
+
+.carousel-inner .item img {
+  height: 200px;
 }
 
 ::selection {
