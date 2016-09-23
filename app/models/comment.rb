@@ -18,4 +18,8 @@ class Comment < ActiveRecord::Base
   def send_comment_email
     NotificationMailer.comment_added(self).deliver
   end
+
+  # def average_rating
+  #   @place = self.place
+  # end
 end
