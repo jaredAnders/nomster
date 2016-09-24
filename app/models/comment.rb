@@ -19,7 +19,11 @@ class Comment < ActiveRecord::Base
     NotificationMailer.comment_added(self).deliver
   end
 
-  # def average_rating
-  #   @place = self.place
+  # def average_rating_place
+  #   @place = Place.find(self.place)
   # end
+
+  # def average_rating_user
+  # end
+
 end
