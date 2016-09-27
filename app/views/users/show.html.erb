@@ -21,19 +21,15 @@
         <% else %>
           comments,
         <% end %>
-        average rating <%= comments_rating_sum/@user.comments.count %> stars</p>
+        average rating <%= (comments_rating_sum/@user.comments.count).round(1) %></p>
     <% else %>
       <p>No comments added yet</p>
     <% end %>
 
     <% if @places.count > 0 %>
       <% places_rating_sum = 0 %>
-      <% places_comments_total = 0 %>
       <% @places.each do |place| %>
-        <% place.comments.each do |comment| %>
-          <% places_rating_sum = places_rating_sum + comment.humanized_rating.to_f %>
-          <% places_comments_total = places_comments_total + 1 %>
-        <% end %>
+        <% places_rating_sum = places_rating_sum + place.average_rating.to_f %>
       <% end %>
 
       <p><%= @places.count %>
@@ -42,7 +38,7 @@
         <% else %>
           places,
         <% end %>
-          average rating <%= places_rating_sum/places_comments_total %> stars</p>
+          average rating <%= (places_rating_sum/@places.count).round(1) %></p>
     <% else %>
       <p>No places added yet</p>
     <% end %>

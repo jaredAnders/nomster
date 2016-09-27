@@ -1,9 +1,11 @@
 <% @places.each do |place| %>
-  <!-- <div class="material-card col-xs-10 col-xs-offset-1"> -->
   <div class="panel panel-default col-xs-10 col-xs-offset-1">
     <h1><%= link_to place.name, place_path(place) %></h1>
     <i><%= place.address %></i>
     <p><%= place.description %></p>
+    <% if place.average_rating.present? %>
+      <h5 class="pull-left"><b>Average user rating: <%= place.average_rating.to_f.round(1) %>/5</b></h5>
+    <% end %>
     <%= link_to 'details', place_path(place), class: 'pull-right' %>
   </div>
 <% end %>

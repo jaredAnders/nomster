@@ -1,11 +1,13 @@
 <div class="col-xs-10 col-xs-offset-1 panel">
   <h2><%= @place.name %></h2>
+  <br>
+  <% if @place.comments.count > 0 %>
+    <h5>Average rating: <%= @place.average_rating.round(2) %></h5>
+  <% end %>
+  <br>
   <i><%= @place.address %></i>
   <br>
   <p><%= @place.description %></p>
-  <% if @place.comments.count > 0 %>
-    <h5>Average Rating: <%= @place.average_rating %></h5>
-  <% end %>
   <br>
   <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
@@ -154,7 +156,7 @@
 
   <br>
   <% @place.comments.reverse_order.each do |comment| %>
-    <div>
+    <div class="col-sm-6">
       <blockquote>
         <% if comment.humanized_rating.present? %>
           <b><%= comment.humanized_rating %>/5</b> -
