@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :place
   after_create :send_comment_email
+  after_create :calc_avg_rating_place
 
   RATINGS = {
     '1'    => '1_star',
@@ -19,10 +20,21 @@ class Comment < ActiveRecord::Base
     NotificationMailer.comment_added(self).deliver
   end
 
-  # def average_rating_place
-  #   @place = Place.where(id: self.place_id)
-  #
-  # end
+  def calc_avg_rating_place
+    @place = Place.where(id: self.place_id)
+
+    places_rating_sum = 0
+
+    @comments = Comment.where(place_id: @place)
+    @comments.each do |comment|
+      places_rating_sum = places_rating_sum + comment.humanized_rating.to_f
+    end
+
+    avg = places_rating_sum/@comments.count
+
+    Place.update(@place, :average_rating => avg)
+
+  end
 
   # def average_rating_user
   # end

@@ -3,7 +3,10 @@
   <i><%= @place.address %></i>
   <br>
   <p><%= @place.description %></p>
-
+  <% if @place.comments.count > 0 %>
+    <h5>Average Rating: <%= @place.average_rating %></h5>
+  <% end %>
+  <br>
   <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
 
