@@ -20,7 +20,8 @@ class Comment < ActiveRecord::Base
   end
 
   # def average_rating_place
-  #   @place = Place.find(self.place)
+  #   @place = Place.where(id: self.place_id)
+  #
   # end
 
   # def average_rating_user

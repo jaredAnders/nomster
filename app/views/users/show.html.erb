@@ -8,13 +8,45 @@
 
   <div class="col-sm-6">
     <p><%= @user.email %></p>
-    <p>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></p>
-    <p>Total comments: <%= @user.comments.count %></p>
-    <% rating_sum = 0 %>
-    <% @user.comments.each do |comment| %>
-      <% rating_sum = rating_sum + comment.humanized_rating.to_f %>
+    <p>Member since <%= @user.created_at.strftime("%B %d, %Y") %></p>
+
+    <% if @user.comments.count > 0 %>
+      <% comments_rating_sum = 0 %>
+      <% @user.comments.each do |comment| %>
+        <% comments_rating_sum = comments_rating_sum + comment.humanized_rating.to_f %>
+      <% end %>
+      <p><%= @user.comments.count %>
+        <% if @user.comments.count == 1 %>
+          comment,
+        <% else %>
+          comments,
+        <% end %>
+        average rating <%= comments_rating_sum/@user.comments.count %> stars</p>
+    <% else %>
+      <p>No comments added yet</p>
     <% end %>
-    <p>Average Rating: <%= rating_sum/@user.comments.count %></p>
+
+    <% if @places.count > 0 %>
+      <% places_rating_sum = 0 %>
+      <% places_comments_total = 0 %>
+      <% @places.each do |place| %>
+        <% place.comments.each do |comment| %>
+          <% places_rating_sum = places_rating_sum + comment.humanized_rating.to_f %>
+          <% places_comments_total = places_comments_total + 1 %>
+        <% end %>
+      <% end %>
+
+      <p><%= @places.count %>
+        <% if @places.count == 1 %>
+          place,
+        <% else %>
+          places,
+        <% end %>
+          average rating <%= places_rating_sum/places_comments_total %> stars</p>
+    <% else %>
+      <p>No places added yet</p>
+    <% end %>
+
   </div>
 </div>
 
@@ -24,6 +56,7 @@
   <% @user.comments.each do |comment| %>
     <div class="col-sm-6">
       <h4><%= link_to comment.place.name, place_path(comment.place) %></h4>
+      <br>
       <blockquote>
         <% if comment.humanized_rating.present? %>
           <b><%= comment.humanized_rating %></b> -
@@ -32,5 +65,22 @@
         <small><%= comment.user.email %></small>
       </blockquote>
     </div>
+  <% end %>
+</div>
+
+<div class="col-xs-10 col-xs-offset-1 panel">
+  <h3>My Places</h3>
+  <br>
+  <% @user.places.each do |place| %>
+    <div class="col-xs-12">
+      <h1><%= link_to place.name, place_path(place) %></h1>
+      <i><%= place.address %></i>
+      <p><%= place.description %></p>
+      <p>Created <%= place.created_at.strftime("%B %d, %Y") %></p>
+      <%= link_to 'details', place_path(place), class: 'pull-right' %>
+    </div>
+    <% if place != @user.places.last %>
+      <hr>
+    <% end %>
   <% end %>
 </div>
