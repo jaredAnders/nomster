@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @places = Place.order(:created_at).reverse_order.page(params[:page]).per(3)
+    @places = Place.order(:created_at).reverse_order.page(params[:page]).per(4)
   end
 
   def new
