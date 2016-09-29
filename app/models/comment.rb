@@ -21,11 +21,11 @@ class Comment < ActiveRecord::Base
   end
 
   def calc_avg_rating_place
-    @place = Place.where(id: self.place_id)
+    # @place = Place.find(self.place_id)
+    # @comments = Comment.where(place_id: @place)
+    @comments = self.place.comments
 
     places_rating_sum = 0
-
-    @comments = Comment.where(place_id: @place)
     @comments.each do |comment|
       places_rating_sum = places_rating_sum + comment.humanized_rating.to_f
     end

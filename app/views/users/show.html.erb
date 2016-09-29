@@ -15,12 +15,7 @@
       <% @user.comments.each do |comment| %>
         <% comments_rating_sum = comments_rating_sum + comment.humanized_rating.to_f %>
       <% end %>
-      <p><%= @user.comments.count %>
-        <% if @user.comments.count == 1 %>
-          comment,
-        <% else %>
-          comments,
-        <% end %>
+      <p><%= pluralize(@user.comments.count, 'comment') %>,
         average rating <%= (comments_rating_sum/@user.comments.count).round(1) %></p>
     <% else %>
       <p>No comments added yet</p>
