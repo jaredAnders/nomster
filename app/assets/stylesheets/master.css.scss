@@ -9,7 +9,7 @@
 @import "bootswatch/paper/bootswatch";
 
 body {
-  background: #E0E0E0;
+  background: #EEEEEE;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,31 +19,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-default {
+  background: darken($orange, 5%);
   .navbar-brand {
     font-family: $pacifico;
-    color: $orange;
+    color: rgba(white,.9);
     &:hover {
-      color: lighten($orange, 15%);
+      color: rgba(white,.75);
     }
   }
   .navbar-toggle {
-    border-color: rgba(black,0);
+    border-color: rgba(white,0);
     .icon-bar {
-      background-color: rgba(black, .85);
+      background-color: rgba(white, .9);
       transition: .3s ease-out;
     }
     &:hover {
       background: none;
       .icon-bar {
-        background-color: rgba(black, .5);
+        background-color: rgba(white, .75);
       }
     }
   }
   .navbar-nav > li > a {
-    color: rgba(black, .85);
+    color: rgba(white, .9);
     transition: .3s ease-out;
     &:hover {
-      color: rgba(black, .5);
+      color: rgba(white, .75);
     }
   }
 }
