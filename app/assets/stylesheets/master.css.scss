@@ -9,7 +9,7 @@
 @import "bootswatch/paper/bootswatch";
 
 body {
-  background: url('/assets/concrete_seamless.png');
+  background: #E0E0E0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,18 +17,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
-
-// p, li, i {
-//   font-family: $raleway;
-// }
-//
-// .navbar.navbar-inverse {
-//   background: lighten(black,15%);
-//   border: none;
-//   border-radius: 0;
-//   box-shadow: 0 0 .5em rgba(0, 0, 0, .14), 0 .5em 1em rgba(0, 0, 0, .28);
-//   //box-shadow: 0 .2em 1em .5em rgba(0,0,0,.5),0 .1em .5em .25em rgba(0,0,0,.4);
-// }
 
 .navbar-default {
   .navbar-brand {
@@ -66,16 +54,24 @@ h1, h2, h3, h4, h5, h6 {
     color: rgba(black, .85);
     transition: .3s ease-out;
   }
+}
+
+.panel-active {
+  transition: .3s ease-out;
   .btn-text {
     color: $orange;
   }
   &:hover {
+    box-shadow: 0 3px 9px rgba(0,0,0,.3);
     h2, p, i {
-      color: rgba(black, .5);
+      color: rgba(black, .7);
     }
     .btn-text{
       color: lighten($orange, 15%);
     }
+  }
+  &:active {
+    box-shadow: 0 0 2px rgba(0,0,0,.3);
   }
 }
 
