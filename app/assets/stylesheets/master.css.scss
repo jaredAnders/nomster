@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel {
-  padding: 1em 1.25em 0;
+  padding: 1em 1.25em;
   h2, p, i {
     color: rgba(black, .85);
     transition: .3s ease-out;
@@ -58,6 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .panel-active {
+  padding: 1em 1.25em 0;
   transition: .3s ease-out;
   .btn-text {
     color: $orange;
