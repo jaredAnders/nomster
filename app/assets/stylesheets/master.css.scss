@@ -8,6 +8,8 @@
 
 @import "bootswatch/paper/bootswatch";
 
+//general
+
 body {
   background: #EEEEEE;
 }
@@ -17,6 +19,20 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
+
+::selection {
+  background: rgba($orange,.75);
+  color: white;
+}
+
+.panel {
+  padding: 1em 1.25em;
+  h2, p, i {
+    color: rgba(black, .85);
+  }
+}
+
+//navigation
 
 .navbar-default {
   background: darken($orange, 5%);
@@ -49,19 +65,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.panel {
-  padding: 1em 1.25em;
-  h2, p, i {
-    color: rgba(black, .85);
-    transition: .3s ease-out;
-  }
-}
+//index components
 
 .panel-active {
   padding: 1em 1.25em 0;
   transition: .3s ease-out;
   .btn-text {
     color: $orange;
+  }
+  h2, p, i {
+    transition: .3s ease-out;
   }
   &:hover {
     box-shadow: 0 3px 9px rgba(0,0,0,.3);
@@ -81,6 +94,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
 }
+
+//form components
 
 form {
   * {
@@ -110,11 +125,6 @@ form {
   }
 }
 
-.alert {
-  border-radius: 0;
-  margin-top: -23px;
-}
-
 .field_with_errors {
   input, textarea {
     box-shadow: inset 0 -2px 0 red;
@@ -125,6 +135,12 @@ form {
   }
 }
 
+.alert {
+  border-radius: 0;
+  margin-top: -23px;
+}
+
+// place show components
 #map {
   height: 300px;
 }
@@ -156,10 +172,7 @@ form {
   padding-bottom: 0;
 }
 
-::selection {
-  background: rgba($orange,.75);
-  color: white;
-}
+//user profile components
 
 .user-avatar {
   opacity: .7;
