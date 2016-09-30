@@ -32,7 +32,7 @@ class Comment < ActiveRecord::Base
 
     avg = places_rating_sum/@comments.count
 
-    Place.update(@place, :average_rating => avg)
+    Place.update(self.place, :average_rating => avg)
 
   end
 
