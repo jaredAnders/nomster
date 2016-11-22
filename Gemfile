@@ -48,3 +48,9 @@ gem 'geocoder'
 gem 'figaro'
 gem 'carrierwave', '>=1.0.0.beta', '< 2.0'
 gem 'fog'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5.0'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'byebug'
+end
