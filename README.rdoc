@@ -14,7 +14,6 @@ Nomstrocity is a simplified Yelp clone built using Rails 4.1.9 to fulfill part o
 
 == TODO
 * Refactor average rating logic
-* Add dependent destroy for models
 * Fix form fields
 * Add empty states for places, comments and images
 * Improve profile page
