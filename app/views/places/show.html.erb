@@ -49,7 +49,9 @@
             <div class="item">
           <% end %>
           <%= image_tag photo.picture, class: 'img-responsive' %>
-          <%= photo_caption(photo) %>
+          <div class="carousel-caption">
+            <%= photo.caption %>
+          </div>
 
             </div>
         <% end %>
