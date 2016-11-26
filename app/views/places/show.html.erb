@@ -8,35 +8,7 @@
       <p><b>Average user rating: <%= @place.average_rating.round(1) %>/5</b></p>
     <% end %>
     <% if @place.latitude.present? && @place.longitude.present? %>
-      <script>
-
-        function initMap() {
-          var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
-
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 12,
-            center: myLatLng,
-            draggable: false,
-            zoomControl: false,
-            scrollwheel: false,
-            disableDefaultUI: true
-          });
-
-          var orangeMarker = 'http://www.googlemapsmarkers.com/v1/-/FF6D00/FF6D00/FFFFFF/'
-
-          var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            icon: orangeMarker
-          });
-        }
-      </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqkbC5lv2ZVXuTD4Wz21P4IUImS_n47nA&callback=initMap">
-      </script>
-
-      <div id="map"></div>
-      <br>
+      <%= render 'google_maps_script' %>
     <% end %>
 
     <div>
