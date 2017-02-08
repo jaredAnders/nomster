@@ -1,8 +1,8 @@
 = Nomstrocity
-Nomstrocity is a simplified Yelp clone built using Rails 4.1.9 to fulfill part of the {Firehose Project}[https://www.thefirehoseproject.com/] curriculum.
+Nomstrocity is a Yelp clone built using Rails 4 that supports user authentication, email notifications via the SendGrid API, Google Maps API integration and image uploading to AWS.
 
 == Concepts/Technologies Covered
-* \User authentication
+* User authentication
 * SendGrid[https://sendgrid.com/]
 * {Amazon S3}[https://aws.amazon.com/s3/]
 * CarrierWave[https://github.com/carrierwaveuploader/carrierwave]
